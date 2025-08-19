@@ -10,8 +10,8 @@
 **Dataset Overview**
     The dataset (transactions.csv) includes over 20,000 transaction records, covering types like PAYMENT, TRANSFER, CASH_OUT, and DEPOSIT. It simulates real-world financial data with balance updates for senders and recipients.
 
-    **Table Name:** transations
-    **Columns:**
+    Table Name: transations
+    Columns:
     1.	transaction_id (INT): Unique identifier for each transaction.
     2.	step (INT): Time step (e.g., representing hours or days).
     3.	transaction_type (VARCHAR): Type of transaction (e.g., 'TRANSFER', 'CASH_OUT').
@@ -48,8 +48,8 @@ These queries use aggregations (COUNT, SUM, AVG), joins for pattern detection, a
 
 **Setup and Execution**
 
-    1. **Database Setup:** Use a SQL database like MySQL, PostgreSQL, or SQLite.
-    2. **Create the Table:**        
+    1. Database Setup: Use a SQL database like MySQL, PostgreSQL, or SQLite.
+    2. Create the Table:        
             CREATE TABLE transactions (
                 transaction_id INT PRIMARY KEY,
                 step INT,
@@ -63,8 +63,8 @@ These queries use aggregations (COUNT, SUM, AVG), joins for pattern detection, a
                 recipient_new_balance DECIMAL(14,2),
                 is_suspicious INT
             );   
-    3. **Load the Data:** Import transactions.csv into the table using your database's import tool (e.g., LOAD DATA INFILE in MySQL or COPY in PostgreSQL).
-    4. **Run Queries:** Execute the SQL statements from the PDF in your SQL client (e.g., DBeaver, MySQL Workbench). Adjust as needed for your dialect.
+    3. Load the Data: Import transactions.csv into the table using your database's import tool (e.g., LOAD DATA INFILE in MySQL or COPY in PostgreSQL).
+    4. Run Queries: Execute the SQL statements from the PDF in your SQL client (e.g., DBeaver, MySQL Workbench). Adjust as needed for your dialect.
 
 **Repository Structure**
 
