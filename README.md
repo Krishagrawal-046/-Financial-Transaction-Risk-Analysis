@@ -1,4 +1,4 @@
-**Financial Transaction Risk Analysis with SQL**
+**Financial Transaction Risk Analysis with SQL:**
     This repository contains an SQL-based project for detecting fraud and money laundering risks in financial transactions. Using a dataset of simulated transactions, we apply analytical queries to uncover patterns like balance inconsistencies, mule accounts, large suspicious transfers, and complex laundering schemes. The project is designed to highlight how SQL can support risk mitigation in banking and finance.
     The analysis focuses on:
     -> Summarizing transaction patterns and volumes.
