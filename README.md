@@ -9,9 +9,9 @@
 
 **Dataset Overview**
     The dataset (transactions.csv) includes over 20,000 transaction records, covering types like PAYMENT, TRANSFER, CASH_OUT, and DEPOSIT. It simulates real-world financial data with balance updates for senders and recipients.
-    **Table Name:** transactions
-    **Columns:**
 
+    **Table Name:** transations
+    **Columns:**
     1.	transaction_id (INT): Unique identifier for each transaction.
     2.	step (INT): Time step (e.g., representing hours or days).
     3.	transaction_type (VARCHAR): Type of transaction (e.g., 'TRANSFER', 'CASH_OUT').
@@ -25,8 +25,9 @@
     11.	is_suspicious (INT): Flag indicating if the transaction is marked as suspicious (1 = yes, 0 = no).
 
 **Key Analytical Queries**
-    The project includes 15 SQL queries stored in Financial Transaction Risk- REPORT QUERY DOCUMENT.pdf. Here's a summary of the main ones:
+    The project includes 15 SQL queries stored in Financial Transaction Risk- REPORT QUERY DOCUMENT.pdf. 
 
+    Here's a summary of the main ones:
     1. Transaction Summary: Counts total transactions, calculates average and max amounts.
     2. Top Largest Transactions: Lists the 10 highest-value transactions with details.
     3. Balance Mismatches: Finds transactions where balances don't update as expected (e.g., old - amount ≠ new).
@@ -46,21 +47,22 @@
 These queries use aggregations (COUNT, SUM, AVG), joins for pattern detection, and filters for risk flagging.
 
 **Setup and Execution**
+
     1. **Database Setup:** Use a SQL database like MySQL, PostgreSQL, or SQLite.
-    2. **Create the Table:**              
-        CREATE TABLE transactions (
-            transaction_id INT PRIMARY KEY,
-            step INT,
-            transaction_type VARCHAR(20),
-            amount DECIMAL(12,2),
-            sender_account VARCHAR(20),
-            sender_old_balance DECIMAL(14,2),
-            sender_new_balance DECIMAL(14,2),
-            recipient_account VARCHAR(20),
-            recipient_old_balance DECIMAL(14,2),
-            recipient_new_balance DECIMAL(14,2),
-            is_suspicious INT
-        );    
+    2. **Create the Table:**        
+            CREATE TABLE transactions (
+                transaction_id INT PRIMARY KEY,
+                step INT,
+                transaction_type VARCHAR(20),
+                amount DECIMAL(12,2),
+                sender_account VARCHAR(20),
+                sender_old_balance DECIMAL(14,2),
+                sender_new_balance DECIMAL(14,2),
+                recipient_account VARCHAR(20),
+                recipient_old_balance DECIMAL(14,2),
+                recipient_new_balance DECIMAL(14,2),
+                is_suspicious INT
+            );   
     3. **Load the Data:** Import transactions.csv into the table using your database's import tool (e.g., LOAD DATA INFILE in MySQL or COPY in PostgreSQL).
     4. **Run Queries:** Execute the SQL statements from the PDF in your SQL client (e.g., DBeaver, MySQL Workbench). Adjust as needed for your dialect.
 
