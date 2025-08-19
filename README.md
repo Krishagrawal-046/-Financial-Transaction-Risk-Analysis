@@ -1,10 +1,11 @@
-**Financial Transaction Risk Analysis with SQL:**
+**Financial Transaction Risk Analysis with SQL**
     This repository contains an SQL-based project for detecting fraud and money laundering risks in financial transactions. Using a dataset of simulated transactions, we apply analytical queries to uncover patterns like balance inconsistencies, mule accounts, large suspicious transfers, and complex laundering schemes. The project is designed to highlight how SQL can support risk mitigation in banking and finance.
+    
     The analysis focuses on:
-    -> Summarizing transaction patterns and volumes.
-    -> Identifying inconsistencies in account balances post-transaction.
-    -> Flagging potential mule accounts with repeated zero balances.
-    -> Detecting high-risk activities such as large transfers, high-frequency operations, and circular money flows.
+        -> Summarizing transaction patterns and volumes.
+        -> Identifying inconsistencies in account balances post-transaction.
+        -> Flagging potential mule accounts with repeated zero balances.
+        -> Detecting high-risk activities such as large transfers, high-frequency operations, and circular money flows.
 
 **Dataset Overview**
     The dataset (transactions.csv) includes over 20,000 transaction records, covering types like PAYMENT, TRANSFER, CASH_OUT, and DEPOSIT. It simulates real-world financial data with balance updates for senders and recipients.
@@ -46,8 +47,8 @@ These queries use aggregations (COUNT, SUM, AVG), joins for pattern detection, a
 
 **Setup and Execution**
     1. **Database Setup:** Use a SQL database like MySQL, PostgreSQL, or SQLite.
-    2. **Create the Table:**
-            CREATE TABLE transactions (
+    2. **Create the Table:**              
+        CREATE TABLE transactions (
             transaction_id INT PRIMARY KEY,
             step INT,
             transaction_type VARCHAR(20),
@@ -59,23 +60,22 @@ These queries use aggregations (COUNT, SUM, AVG), joins for pattern detection, a
             recipient_old_balance DECIMAL(14,2),
             recipient_new_balance DECIMAL(14,2),
             is_suspicious INT
-        );
-
+        );    
     3. **Load the Data:** Import transactions.csv into the table using your database's import tool (e.g., LOAD DATA INFILE in MySQL or COPY in PostgreSQL).
     4. **Run Queries:** Execute the SQL statements from the PDF in your SQL client (e.g., DBeaver, MySQL Workbench). Adjust as needed for your dialect.
 
 **Repository Structure**
 
-    **transactions.csv:** The raw dataset.
-    **Financial Transaction Risk- REPORT QUERY DOCUMENT.pdf:** Detailed queries with explanations.
-    **README.md:** This file.
+    transactions.csv: The raw dataset.
+    Financial Transaction Risk- REPORT QUERY DOCUMENT.pdf: Detailed queries with explanations.
+    README.md: This file.
 
 **Key Findings and Insights**
 
-    • **Balance Issues:** Some transactions show mismatches, indicating potential errors or manipulation.
-    • **Mule Patterns:** Accounts with persistent zero balances often receive and immediately forward funds, a red flag for fraud.
-    • **Laundering Indicators:** Round-trips and chains reveal hidden money flows; high-frequency small transfers suggest structuring to evade limits.
-    • **Hub Accounts:** Certain accounts centralize inflows (collectors) or outflows (distributors), common in organized fraud.
-    • **Risk Trends:** Suspicious volumes peak in certain steps, helping prioritize monitoring.
+    • Balance Issues: Some transactions show mismatches, indicating potential errors or manipulation.
+    • Mule Patterns: Accounts with persistent zero balances often receive and immediately forward funds, a red flag for fraud.
+    • Laundering Indicators: Round-trips and chains reveal hidden money flows; high-frequency small transfers suggest structuring to evade limits.
+    • Hub Accounts: Certain accounts centralize inflows (collectors) or outflows (distributors), common in organized fraud.
+    • Risk Trends: Suspicious volumes peak in certain steps, helping prioritize monitoring.
 
 This project can be extended with visualizations (e.g., via Tableau) or integrated into a larger fraud detection system. Contributions welcome! For questions, open an issue.
